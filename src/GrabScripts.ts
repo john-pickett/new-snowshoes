@@ -7,7 +7,7 @@ const axios = require('axios');
 // 	return x + y;
 // }
 
-export const pullScriptsFromSN = async (table: string, app_name: string): Promise<any> => {
+export const pullScriptsFromSN = async (table: string, app_name: string): Promise<{}> => {
 	const request = await axios.get(`https://dev54390.service-now.com/api/now/table/${table}` + `?sysparm_query=sys_scopeLIKE${app_name}`, {
 				auth: {
 					username: config.username,
