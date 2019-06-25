@@ -1,0 +1,25 @@
+{
+  "name": "tdd-snowshoes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose --coverage",
+    "watch": "jest --verbose --watch",
+    "test-log": "jest",
+    "clean": "rm -rf node_modules",
+    "pull": "node dist/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.2"
+  },
+  "dependencies": {
+    "@types/node": "^12.0.8",
+    "axios": "^0.19.0"
+  }
+}

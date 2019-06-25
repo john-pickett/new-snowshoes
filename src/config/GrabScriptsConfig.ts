@@ -1,0 +1,41 @@
+export interface ClientScript {
+	isolate_script: boolean,
+	applies_extended: boolean,
+	description: string,
+	global: boolean,
+	sys_updated_on: string,
+	type: string,
+	sys_class_name: string,
+	sys_id: string,
+	ui_type: number,
+	view: string,
+	sys_updated_by: string,
+	sys_created_on: string,
+	sys_domain: object,
+	sys_name: string,
+	sys_scope: object,
+	sys_created_by: string,
+	table: string,
+	order: string,
+	sys_mod_count: number,
+	active: boolean,
+	sys_overrides: string,
+	sys_domain_path: string,
+	sys_tags: string,
+	script: string,
+	sys_package: object,
+	condition: string,
+	sys_update_name: string,
+	field: boolean,
+	name: string,
+	messages: string,
+	sys_policy: string
+}
+
+export interface RegistryScript extends ClientScript{
+	sys_id: string,
+	name: string,
+	sys_class_name: string,
+	created_on: string,
+	updated_on: string
+}
