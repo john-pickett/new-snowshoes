@@ -1,5 +1,5 @@
 import { pullScriptsFromSN, configureRegistryData } from './GrabScripts';
-import { write_json_registry } from './utils/utils';
+import { write_json_registry, async_for_each } from './utils/utils';
 
 (async () => {
 	const result: any = await pullScriptsFromSN('sys_script_client', 'NeedIt');
@@ -7,3 +7,6 @@ import { write_json_registry } from './utils/utils';
 	// console.log(JSON.stringify(registryData, null, '\t'));
 	write_json_registry('registry', JSON.stringify(registryData, null, '\t'));
 })();
+
+
+
