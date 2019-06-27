@@ -32,7 +32,7 @@ export interface ClientScript {
 	sys_policy: string
 }
 
-export interface RegistryScript extends ClientScript{
+export interface RegistryEntry extends ClientScript{
 	sys_id: string,
 	name: string,
 	sys_class_name: string,

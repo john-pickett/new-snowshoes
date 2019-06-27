@@ -1,4 +1,4 @@
-import { ClientScript, RegistryScript } from './config/GrabScriptsConfig';
+import { ClientScript, RegistryEntry } from './config/GrabScriptsConfig';
 //import { rejects } from 'assert';
 const config = require('../config/snow-config.json');
 const axios = require('axios');
@@ -31,7 +31,7 @@ export const configureRegistryData = (scripts: Array<ClientScript>): Array<objec
 	let registryData: object[] = [];
 
 	scripts.forEach((item: ClientScript) => {
-		let currentScript = <RegistryScript>{};
+		let currentScript = <RegistryEntry>{};
 		currentScript.sys_id = item.sys_id;
 		currentScript.name = item.name;
 		currentScript.table = item.sys_class_name;
@@ -42,5 +42,6 @@ export const configureRegistryData = (scripts: Array<ClientScript>): Array<objec
 
 	return registryData;
 }
+
 
 
