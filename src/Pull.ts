@@ -7,14 +7,17 @@ const tables = Object.keys(table_map).map(key => table_map[key]);
 
 (async () => {
 	async_for_each(tables, async (table: string) => {
-		const result: any = await pullScriptsFromSN(table, 'NeedIt');
+		const result: any = await pullScriptsFromSN(table, 'NeedIt'); // TODO: fix this to use app from config
 		const scripts: [ClientScript] = result.data;
-		const registryData: object[] = configureRegistryData(result.data);
-		// console.log(JSON.stringify(registryData, null, '\t'));
-		write_json_registry('registry', JSON.stringify(registryData, null, '\t'));
+		const registryData: Array<object> = configureRegistryData(result.data);
+		// console.log('registryData' + JSON.stringify(registryData, null, '\t'));
+		
+		// RegistryData is an array of objects, but passing it into write_json_registry
+		// as a string by JSON.stringify
+		write_json_registry('registry', registryData);
 		// console.log(JSON.stringify(scripts))
 		scripts.forEach((script) => {
-			write_javascript_file(script.name, script.script, script.sys_class_name)
+			write_javascript_file(script.name, script.script, script.sys_class_name);
 		});
 	});
 	

@@ -1,9 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const config = require('../config/snow-config.json');
 const axios = require('axios');
+const config = require('../config/snow-config.json');
+const base_url = config.url;
 exports.pullScriptsFromSN = async (table, app_name) => {
-    const request = await axios.get(`https://dev54390.service-now.com/api/now/table/${table}` + `?sysparm_query=sys_scopeLIKE${app_name}`, {
+    const request = await axios.get(`${base_url}/api/now/table/${table}` + `?sysparm_query=sys_scopeLIKE${app_name}`, {
         auth: {
             username: config.username,
             password: config.password
@@ -11,6 +12,7 @@ exports.pullScriptsFromSN = async (table, app_name) => {
     });
     return new Promise((resolve, reject) => {
         try {
+            console.log(request.status);
             resolve({
                 status: request.status,
                 data: request.data.result

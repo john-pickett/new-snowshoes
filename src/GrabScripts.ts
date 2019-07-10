@@ -1,14 +1,12 @@
-import { ClientScript, RegistryEntry } from './config/GrabScriptsConfig';
-//import { rejects } from 'assert';
-const config = require('../config/snow-config.json');
 const axios = require('axios');
+import { ClientScript, RegistryEntry } from './config/GrabScriptsConfig';
+const config = require('../config/snow-config.json');
+const base_url = config.url;
 
-// export const addTwoNums = (x: number, y: number): number => {
-// 	return x + y;
-// }
-
+// this function is strictly for sending/receiving data from SN
+// no business logic should be contained here
 export const pullScriptsFromSN = async (table: string, app_name: string): Promise<{}> => {
-	const request = await axios.get(`https://dev54390.service-now.com/api/now/table/${table}` + `?sysparm_query=sys_scopeLIKE${app_name}`, {
+	const request = await axios.get(`${base_url}/api/now/table/${table}` + `?sysparm_query=sys_scopeLIKE${app_name}`, {
 				auth: {
 					username: config.username,
 					password: config.password
@@ -16,6 +14,7 @@ export const pullScriptsFromSN = async (table: string, app_name: string): Promis
 			})
 	return new Promise((resolve, reject) => {
 		try {
+			console.log(request.status);
 			resolve({
 				status: request.status,
 				data: request.data.result
@@ -24,11 +23,10 @@ export const pullScriptsFromSN = async (table: string, app_name: string): Promis
 			reject(err);
 		}
 	})
-	
 }
 
 export const configureRegistryData = (scripts: Array<ClientScript>): Array<object> => {
-	let registryData: object[] = [];
+	let registryData: Array<object> = [];
 
 	scripts.forEach((item: ClientScript) => {
 		let currentScript = <RegistryEntry>{};
