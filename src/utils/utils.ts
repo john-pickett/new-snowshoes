@@ -17,7 +17,7 @@ export const write_json_registry = (file_name: string, file_data: Array<object>)
 
 	// write entire existing array to file // all new items are appended
 	fs.writeFileSync(`${dir}/${file_name}.json`, JSON.stringify(existingRegistryData, null, '\t'));
-	console.log('done writing json file');
+	console.log('done writing to registry.json file');
 }
 
 export const write_javascript_file = (file_name: string, data: string, class_name: string): void => {
