@@ -1,6 +1,6 @@
 const axios = require('axios');
-import { ClientScript, RegistryEntry } from './config/GrabScriptsConfig';
-const config = require('../config/snow-config.json');
+import { ClientScript, RegistryEntry } from '../config/GrabScriptsConfig';
+const config = require('../../config/snow-config.json');
 const base_url = config.url;
 
 // this function is strictly for sending/receiving data from SN
@@ -25,6 +25,7 @@ export const pullScriptsFromSN = async (table: string, app_name: string): Promis
 	})
 }
 
+// this creates the script object that is stored in the registry
 export const configureRegistryData = (scripts: Array<ClientScript>): Array<object> => {
 	let registryData: Array<object> = [];
 

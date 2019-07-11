@@ -8,8 +8,9 @@
     "watch": "jest --verbose --watch",
     "test-log": "jest",
     "clean": "rm -rf node_modules",
-    "pull": "node dist/Pull.js",
-    "devpull": "tsc && node dist/Pull.js"
+    "pull": "node dist/PullAll.js",
+    "devpull": "tsc && node dist/PullAll.js",
+    "devpushall": "tsc && node dist/PushAll.js"
   },
   "author": "",
   "license": "ISC",

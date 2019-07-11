@@ -1,4 +1,4 @@
-import { pullScriptsFromSN, configureRegistryData } from './GrabScripts';
+import { pullScriptsFromSN, configureRegistryData } from './pull/GrabScripts';
 import { write_json_registry, write_javascript_file, async_for_each } from './utils/utils';
 import { ClientScript } from './config/GrabScriptsConfig';
 const table_map = require('../config/table-map.json');

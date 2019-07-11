@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const axios = require('axios');
-const config = require('../config/snow-config.json');
+const config = require('../../config/snow-config.json');
 const base_url = config.url;
 exports.pullScriptsFromSN = async (table, app_name) => {
     const request = await axios.get(`${base_url}/api/now/table/${table}` + `?sysparm_query=sys_scopeLIKE${app_name}`, {

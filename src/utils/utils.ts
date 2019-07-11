@@ -36,7 +36,7 @@ export const write_javascript_file = (file_name: string, data: string, class_nam
 	console.log('done writing javascript file');
 }
 
-export const async_for_each = async (array: string[], functionCallback: any) => {
+export const async_for_each = async (array: Array<object>, functionCallback: any) => {
 	for (let index = 0; index < array.length; index++) {
 	  await functionCallback(array[index]);
 	}
